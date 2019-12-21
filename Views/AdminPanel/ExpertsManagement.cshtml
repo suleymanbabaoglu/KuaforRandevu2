@@ -1,0 +1,42 @@
+﻿@model IQueryable<KuaforRandevu2.Models.Entities.Expert>
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container mt-5 text-center">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-responsive table-bordered text-center">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Full Name</td>
+                        <td>Title</td>
+                        <td>Message</td>
+                        <td>Email</td>
+                        <td>Phone</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var expert in Model)
+                    {
+                        <tr class="p-1">
+                            <td>@expert.Id</td>
+                            <td>@expert.UserId</td>
+                            <td>@expert.ExpertJob</td>
+                            <td>
+                                <a href="~/AdminPanel/ExpertAdd/@expert.Id">Edit</a>
+                            </td>
+                            <td>
+                                <a href="~/AdminPanel/ExpertDelete/@expert.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a class="btn btn-primary" href="~/AdminPanel/ExpertAdd">Add Expert</a>
+            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+        </div>
+    </div>
+</div>

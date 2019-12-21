@@ -1,0 +1,40 @@
+﻿@model KuaforRandevu2.Models.Entities.User
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("UserAdd", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+            {
+                @Html.LabelFor(m => m.UserName, "User Name");
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" });
+                @Html.LabelFor(m => m.Password, "Password");
+                @Html.TextBoxFor(m => m.Password, new { @class = "form-control" });
+                @Html.LabelFor(m => m.FullName, "Full Name");
+                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" });
+                @Html.LabelFor(m => m.Gender, "Gender");
+                <select name="selectedGender" class="form-control">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                @Html.LabelFor(m => m.Email, "E-Mail");
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" });
+                @Html.LabelFor(m => m.Phone, "Phone");
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" });
+                @Html.LabelFor(m => m.Address, "Address");
+                @Html.TextAreaFor(m => m.Address, new { @class = "form-control" });
+                @Html.LabelFor(m => m.RoleId, "Role");
+                <select name="selectedRole" class="form-control">
+                    <option value="1">Admin</option>
+                    <option value="2">User</option>
+                </select>
+
+                <button class="btn btn-primary" type="submit">Add</button>
+            }
+            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+        </div>
+    </div>
+</div>
+

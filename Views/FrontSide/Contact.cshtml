@@ -1,0 +1,92 @@
+﻿@model KuaforRandevu2.Models.Entities.ContactForm
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row text-center">
+        <div class="col-md-12">
+            <div class="col-md-4">
+                <h3>Instagram</h3>
+                <a href="https://instagram.com/@ViewBag.Contact.Instagram">@ViewBag.Contact.Instagram</a>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Facebook</h3>
+                <a href="https://facebook.com/@ViewBag.Contact.Facebook">@ViewBag.Contact.Facebook</a>
+            </div>
+
+
+            <div class="col-md-4">
+                <h3>Google+</h3>
+                <a href="https://plus.google.com/@ViewBag.Contact.GooglePlus">@ViewBag.Contact.GooglePlus</a>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Email</h3>
+                <p>@ViewBag.Contact.Email</p>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Phone</h3>
+                <p>@ViewBag.Contact.Phone</p>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Address</h3>
+                <p>@ViewBag.Contact.Address</p>
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("ContactFormManagement", "AdminPanel", FormMethod.Post, new { @class = "form-group" }))
+            {
+                @Html.LabelFor(m => m.FullName, "Full Name")
+                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+                @Html.LabelFor(m => m.Email, "E-mail")
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.LabelFor(m => m.Phone, "Phone")
+                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                @Html.LabelFor(m => m.Title, "Title")
+                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                @Html.LabelFor(m => m.Message, "Message")
+                @Html.TextAreaFor(m => m.Message, new { @class = "form-control" })
+                <button type="submit" class="btn btn-primary">Send</button>
+            }
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <div class="row text-center">
+        <div class="col-md-12">
+            <div class="mapouter">
+                <div class="gmap_canvas"><iframe width="1080" height="395" id="gmap_canvas" src="https://maps.google.com/maps?q=ait%20bilgisayar&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://ytify.com">youtube to m3p</a></div>
+                <style>
+                    .mapouter {
+                        position: relative;
+                        text-align: right;
+                        height: 395px;
+                        width: 1080px;
+                    }
+
+                    .gmap_canvas {
+                        overflow: hidden;
+                        background: none !important;
+                        height: 395px;
+                        width: 1080px;
+                    }
+                </style>
+            </div>
+        </div>
+
+    </div>
+</div>

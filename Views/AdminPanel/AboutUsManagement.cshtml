@@ -1,0 +1,22 @@
+﻿@model KuaforRandevu2.Models.Entities.About
+@{
+    Layout = "_AdminLayout";
+}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+           @using (Html.BeginForm("AboutUsManagement", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+           {
+               @Html.LabelFor(m => m.AboutText, "About Us");
+               @Html.TextBoxFor(m => m.AboutText,new {@class="form-control"});
+               @Html.LabelFor(m => m.Mission, "Our Mission");
+               @Html.TextBoxFor(m => m.Mission,new {@class="form-control"});
+               @Html.LabelFor(m => m.Vision, "Our Vision");
+               @Html.TextBoxFor(m => m.Vision,new {@class="form-control"});
+               <button class="btn btn-primary" type="submit">Update</button>
+           }
+            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+        </div>
+    </div>
+</div>
+
