@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KuaforRandevu2", "KuaforRandevu2.csproj", "{5C58EA62-D18B-4E61-9A2F-0AB2C98574C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5C58EA62-D18B-4E61-9A2F-0AB2C98574C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C58EA62-D18B-4E61-9A2F-0AB2C98574C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C58EA62-D18B-4E61-9A2F-0AB2C98574C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C58EA62-D18B-4E61-9A2F-0AB2C98574C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {96EFE200-2E4C-4FFF-B530-6B11E5963678}
+	EndGlobalSection
+EndGlobal
