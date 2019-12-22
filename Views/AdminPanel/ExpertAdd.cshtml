@@ -6,13 +6,13 @@
     <div class="row">
         <div class="col-md-12">
             @using (Html.BeginForm("ExpertAdd", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
-            {               
+            {
                 @Html.LabelFor(m => m.User.FullName, "Full Name");
-                <select name="@Html.NameFor(m=>m.User.Id)" class="form-control"></select>
+                @Html.DropDownList("UserId", ViewBag.Users.Items, "Select a User to Add an Expert", new { @class = "form-control" });               
                 @Html.LabelFor(m => m.ExpertJob, "Job");
                 @Html.TextBoxFor(m => m.ExpertJob, new { @class = "form-control" });
-               
-                
+
+
 
                 <button class="btn btn-primary" type="submit">Add</button>
             }

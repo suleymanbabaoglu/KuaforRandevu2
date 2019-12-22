@@ -10,10 +10,7 @@
                     <tr>
                         <td>ID</td>
                         <td>Full Name</td>
-                        <td>Title</td>
-                        <td>Message</td>
-                        <td>Email</td>
-                        <td>Phone</td>
+                        <td>Expert Job</td>                       
                         <td></td>
                         <td></td>
                     </tr>
@@ -23,10 +20,10 @@
                     {
                         <tr class="p-1">
                             <td>@expert.Id</td>
-                            <td>@expert.UserId</td>
+                            <td>@expert.User.FullName</td>
                             <td>@expert.ExpertJob</td>
                             <td>
-                                <a href="~/AdminPanel/ExpertAdd/@expert.Id">Edit</a>
+                                <a href="~/AdminPanel/ExpertUpdate/@expert.Id">Edit</a>
                             </td>
                             <td>
                                 <a href="~/AdminPanel/ExpertDelete/@expert.Id">Delete</a>

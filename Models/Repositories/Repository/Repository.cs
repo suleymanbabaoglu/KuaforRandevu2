@@ -51,7 +51,7 @@ namespace KuaforRandevu2.Models.Repositories.Repository
                 dataContext.SaveChanges();
                 return true;
             }
-            catch
+            catch(DbUpdateConcurrencyException e)
             {
                 return false;
             }

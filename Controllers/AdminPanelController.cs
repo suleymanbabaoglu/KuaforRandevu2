@@ -7,6 +7,7 @@ using KuaforRandevu2.Models.Repositories.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace KuaforRandevu2.Controllers
@@ -124,20 +125,25 @@ namespace KuaforRandevu2.Controllers
 
         public IActionResult ExpertsManagement()
         {
-            return View(expertRepo.Get());
+            return View(expertRepo.Table.Include(m => m.User));
         }
 
         public IActionResult ExpertAdd()
         {
-            var users = userRepo.Get();
-            ViewBag.Users = users;
+            var ignoredId = expertRepo.Get().Select(i => i.UserId).ToArray();
+            var users = (IEnumerable<SelectListItem>)userRepo.Table.Where(s => !ignoredId.Contains(s.Id)).Select(s => new SelectListItem
+            {
+                Value = s.Id.ToString(),
+                Text = s.FullName
+            });
+
+            ViewBag.Users = new SelectList(users, "UserId", "FullName");
             return View();
         }
 
         [HttpPost]
-        public IActionResult ExpertAdd(Expert expert, int selectedUser)
+        public IActionResult ExpertAdd(Expert expert)
         {
-            expert.UserId = selectedUser;
             expertRepo.Add(expert);
             expertRepo.Save();
             return RedirectToAction("ExpertsManagement");
@@ -145,14 +151,18 @@ namespace KuaforRandevu2.Controllers
 
         public IActionResult ExpertUpdate(int id)
         {
-            return View(expertRepo.Table.Where(u => u.Id == id).FirstOrDefault());
+            var expert = expertRepo.Table.Where(u => u.Id == id).FirstOrDefault();
+            var userId = expertRepo.Table.Where(u => u.Id == id).Select(u => u.UserId).FirstOrDefault();
+            var user = userRepo.Table.Where(u => u.Id == userId).FirstOrDefault();
+            ViewBag.userFullName = user.FullName;
+            return View(expert);
         }
 
         [HttpPost]
-        public IActionResult ExpertUpdate(Expert expert, int selectedUser)
+        public IActionResult ExpertUpdate(Expert expert, int id)
         {
-
-            expert.UserId = selectedUser;
+            var d = expertRepo.Get().Where(m => m.Id == id).Select(s => s.UserId).FirstOrDefault();
+            expert.UserId = d;
             expertRepo.Update(expert);
             expertRepo.Save();
             return RedirectToAction("ExpertsManagement");

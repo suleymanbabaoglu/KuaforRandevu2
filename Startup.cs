@@ -51,7 +51,8 @@ namespace KuaforRandevu2
 
             services.AddDbContext<KuaforWebContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]);
+                //options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnectionString"]);
+                options.UseSqlServer(Configuration["ConnectionStrings:HomeConnectionString"]);
             });
 
 
