@@ -21,14 +21,14 @@
                 {
                     <tr class="p-1">
                         <td>@appointment.Id</td>
-                        <td>@appointment.UserId</td>
-                        <td>@appointment.ExpertId</td>
+                        <td>@appointment.User.FullName</td>
+                        <td>@appointment.Expert.User.FullName</td>
                         <td>@appointment.AppointmentDate</td>
                         <td>
-                            <a href="#">Edit</a>
+                            <a href="~/AdminPanel/AppointmentUpdate/@appointment.Id">Edit</a>
                         </td>
                         <td>
-                            <a href="#">Delete</a>
+                            <a href="~/AdminPanel/AppointmentDelete/@appointment.Id">Delete</a>
                         </td>
                     </tr>
                 }

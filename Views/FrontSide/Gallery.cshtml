@@ -1,7 +1,22 @@
-﻿@{
-    ViewData["Title"] = "Galeri";
+﻿@model IQueryable<KuaforRandevu2.Models.Entities.Gallery>
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
+<h3>GALLERY</h3>
 
-<p>Use this page to detail </p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @foreach (var item in Model)
+            {
+            <div class="col-md-4">
+                <img src="~/img/@item.ImgPath" class="img-responsive" alt="@item.ImgText" style="width: 100%;" />
+
+                <div class="text-center">
+                    <p>@item.ImgText</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

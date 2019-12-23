@@ -14,8 +14,7 @@
                     <td>Message</td>
                     <td>Email</td>
                     <td>Phone</td>
-                    <td></td>
-                    <td></td>
+                    <td></td>                 
                 </tr>
                 </thead>
                 <tbody>
@@ -27,12 +26,9 @@
                         <td>@contactForm.Title</td>
                         <td>@contactForm.Message</td>
                         <td>@contactForm.Email</td>
-                        <td>@contactForm.Phone</td>
+                        <td>@contactForm.Phone</td>                        
                         <td>
-                            <a href="#">Edit</a>
-                        </td>
-                        <td>
-                            <a href="#">Delete</a>
+                            <a href="~/AdminPanel/ContactFormDelete/@contactForm.Id">Delete</a>
                         </td>
                     </tr>
                 }

@@ -16,8 +16,7 @@ namespace KuaforRandevu2.Controllers
     [Authorize(Roles = "admin,user", AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     public class LoginController : Controller
     {
-        private readonly IRepository<User> userRepo;
-        private readonly IRepository<Role> roleRepo;
+        private readonly IRepository<User> userRepo;      
         public LoginController(IRepository<User> userRepo)
         {
             this.userRepo = userRepo;            

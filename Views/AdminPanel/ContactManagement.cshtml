@@ -7,6 +7,7 @@
         <div class="col-md-12">
             @using (Html.BeginForm("ContactManagement", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
             {
+                @Html.HiddenFor(m => m.Id);
                 @Html.LabelFor(m => m.Instagram, "Instagram");
                 @Html.TextBoxFor(m => m.Instagram, new { @class = "form-control" });
                 @Html.LabelFor(m => m.Facebook, "Facebook");

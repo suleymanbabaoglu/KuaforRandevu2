@@ -7,6 +7,7 @@
         <div class="col-md-12">
            @using (Html.BeginForm("AboutUsManagement", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
            {
+               @Html.HiddenFor(m => m.Id);
                @Html.LabelFor(m => m.AboutText, "About Us");
                @Html.TextBoxFor(m => m.AboutText,new {@class="form-control"});
                @Html.LabelFor(m => m.Mission, "Our Mission");

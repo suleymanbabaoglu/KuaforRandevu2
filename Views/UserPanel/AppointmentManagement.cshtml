@@ -1,24 +1,39 @@
-﻿@model KuaforRandevu2.Models.Entities.Appointment
+﻿@model IQueryable<KuaforRandevu2.Models.Entities.Appointment>
 @{
-    ViewData["Title"] = "AppointmentManagement";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "_UserLayout";
 }
-
-<div class="container mt-5">
+<div class="container mt-5 text-center">
     <div class="row">
         <div class="col-md-12">
-            @using (Html.BeginForm("AppointmentManagement", "UserPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
-            {
-                @Html.LabelFor(m => m.Expert.User.FullName, "Expert");
-                @Html.TextBoxFor(m => m.Expert.User.FullName, new { @class = "form-control", @readonly="readonly" });
-                @Html.LabelFor(m => m.AppointmentDate, "Appointment Date");
-                @Html.TextBoxFor(m => m.AppointmentDate, new { @class = "form-control" });
-                <button class="btn btn-primary" type="submit">Update</button>
-            }
-            <a class="btn btn-secondary" href="~/UserPanel">User Home</a>
+            <table class="table table-responsive table-bordered text-center">
+                <thead>
+                    <tr>
+                        <td>ID</td>                        
+                        <td>Expert</td>                       
+                        <td>Appointment Date</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var appointment in Model)
+                    {
+                        <tr class="p-1">
+                            <td>@appointment.Id</td>                            
+                            <td>@appointment.Expert.User.FullName</td>
+                            <td>@appointment.AppointmentDate</td>
+                            <td>
+                                <a href="~/UserPanel/UpdateAppointment/@appointment.Id">Edit</a>
+                            </td>
+                            <td>
+                                <a href="~/UserPanel/DeleteAppointment/@appointment.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a class="btn btn-primary" href="~/UserPanel/SetAppointment">Set Appointment</a>
+            <a class="btn btn-secondary" href="~/UserPanel">Admin Home</a>
         </div>
     </div>
 </div>
-
-
-

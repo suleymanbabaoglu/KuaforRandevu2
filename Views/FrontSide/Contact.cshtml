@@ -47,7 +47,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            @using (Html.BeginForm("ContactFormManagement", "AdminPanel", FormMethod.Post, new { @class = "form-group" }))
+            @using (Html.BeginForm("ContactFormAdd", "AdminPanel", FormMethod.Post, new { @class = "form-group" }))
             {
                 @Html.LabelFor(m => m.FullName, "Full Name")
                 @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })

@@ -10,7 +10,7 @@
                 <h3>@ViewBag.userFullName</h3>
                 <br />
                 @Html.TextBoxFor(m => m.ExpertJob, new { @class = "form-control" });
-
+                @Html.HiddenFor(m=>m.UserId)
                 <button class="btn btn-primary" type="submit">Update</button>
             }
             <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>

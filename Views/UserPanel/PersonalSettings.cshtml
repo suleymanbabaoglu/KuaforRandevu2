@@ -9,14 +9,22 @@
         <div class="col-md-12">
             @using (Html.BeginForm("PersonalSettings", "UserPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
             {
+                @Html.HiddenFor(m => m.Id);
+                @Html.HiddenFor(m => m.RoleId);
                 @Html.LabelFor(m => m.UserName, "User Name");
                 @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Password, "User Name");
+                @Html.LabelFor(m => m.Password, "Password");
                 @Html.TextBoxFor(m => m.Password, new { @class = "form-control" });
-                @Html.LabelFor(m => m.FullName, "Facebook");
+                @Html.LabelFor(m => m.Gender, "Gender");
+                <select name="Gender" class="form-control">
+                    <option selected value="@Model.Gender">@Model.Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>                    
+                </select>
+                <br />
+                @Html.LabelFor(m => m.FullName, "Full Name");
                 @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Gender, "Google+");
-                @Html.TextBoxFor(m => m.Gender, new { @class = "form-control" });
                 @Html.LabelFor(m => m.Email, "E-Mail");
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" });
                 @Html.LabelFor(m => m.Phone, "Phone");
