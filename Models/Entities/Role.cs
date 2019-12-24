@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace KuaforRandevu2.Models.Entities
 {
@@ -10,6 +11,7 @@ namespace KuaforRandevu2.Models.Entities
             User = new HashSet<User>();
         }
 
+        [Key]
         public int Id { get; set; }
         public string RoleName { get; set; }
 

@@ -16,10 +16,10 @@ namespace KuaforRandevu2.Controllers
     [Authorize(Roles = "admin,user", AuthenticationSchemes = CookieAuthenticationDefaults.AuthenticationScheme)]
     public class LoginController : Controller
     {
-        private readonly IRepository<User> userRepo;      
+        private readonly IRepository<User> userRepo;
         public LoginController(IRepository<User> userRepo)
         {
-            this.userRepo = userRepo;            
+            this.userRepo = userRepo;
         }
         [AllowAnonymous]
         public IActionResult Index()
@@ -79,6 +79,30 @@ namespace KuaforRandevu2.Controllers
         {
             HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index");
+        }
+
+        [AllowAnonymous]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public IActionResult Register(User regUser, string selectedGender)
+        {
+            regUser.RoleId = 2;
+            regUser.Gender = selectedGender;
+            var user = userRepo.Table.Where(s => s.UserName == regUser.UserName).FirstOrDefault();
+            if (user == null)
+            {
+                userRepo.Add(regUser);
+                userRepo.Save();
+                SignInAsync(regUser);
+                Index(regUser);
+                return RedirectToAction("Index","FrontSide");
+            }
+            return RedirectToAction("Register");
         }
     }
 }
