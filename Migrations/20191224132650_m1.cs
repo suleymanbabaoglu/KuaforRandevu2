@@ -113,7 +113,7 @@ namespace KuaforRandevu2.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -135,7 +135,7 @@ namespace KuaforRandevu2.Migrations
                         column: x => x.ImgUserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -156,13 +156,13 @@ namespace KuaforRandevu2.Migrations
                         column: x => x.ExpertId,
                         principalTable: "Expert",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Appointment_User_UserId",
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.InsertData(
@@ -198,7 +198,8 @@ namespace KuaforRandevu2.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Expert_UserId",
                 table: "Expert",
-                column: "UserId");
+                column: "UserId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Gallery_ImgUserId",

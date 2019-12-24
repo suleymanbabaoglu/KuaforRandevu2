@@ -1,5 +1,5 @@
 using KuaforRandevu2.Models.DbContexts;
-using KuaforRandevu2.Models.Repositories.Repository;
+using KuaforRandevu2.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

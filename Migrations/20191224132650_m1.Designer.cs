@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KuaforRandevu2.Migrations
 {
     [DbContext(typeof(KuaforWebContext))]
-    [Migration("20191224084257_m1")]
+    [Migration("20191224132650_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -4,7 +4,7 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace KuaforRandevu2.Models.Repositories.Repository
+namespace KuaforRandevu2.Repository
 {
     public class Repository<T> : IRepository<T> where T : class
     {
