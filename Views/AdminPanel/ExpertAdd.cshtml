@@ -2,21 +2,19 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5">
+<div class="ui container grid padded centered">
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("ExpertAdd", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="eight wide column">
+            @using (Html.BeginForm("ExpertAdd", "AdminPanel", null, FormMethod.Post, true, new { @class = "ui form" }))
             {
                 @Html.LabelFor(m => m.User.FullName, "Full Name");
-                @Html.DropDownList("UserId", ViewBag.Users.Items, "Select a User to Add an Expert", new { @class = "form-control" });               
+                @Html.DropDownList("UserId", ViewBag.Users.Items, "Select a User to Add an Expert", new {  });
                 @Html.LabelFor(m => m.ExpertJob, "Job");
-                @Html.TextBoxFor(m => m.ExpertJob, new { @class = "form-control" });
+                @Html.TextBoxFor(m => m.ExpertJob, new {  });
 
-
-
-                <button class="btn btn-primary" type="submit">Add</button>
+                <button class="ui fluid large teal submit button" type="submit">Add</button>
             }
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+            <a class="ui button default" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>

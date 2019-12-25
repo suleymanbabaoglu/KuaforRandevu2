@@ -3,22 +3,19 @@
     ViewData["Title"] = "Experts";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
 
-<div class="container text-center">
-    <div class="row">
-        <div class="col-md-12">
-            @foreach (var expert in Model)
-            {
-                <div class="col-md-4">
-                    <h4>NAME</h4>
-                    <p>@expert.User.FullName</p>
-                    <br />
-                    <h5>JOB</h5>
-                    <p>@expert.ExpertJob</p>
-                </div>
-            }
 
+<div class="ui grid centered container padded">
+    @foreach (var expert in Model)
+    {
+        <div class="three wide column">
+            <h4>NAME</h4>
+            <p>@expert.User.FullName</p>
+            <br />
+            <h5>JOB</h5>
+            <p>@expert.ExpertJob</p>
         </div>
-    </div>
+    }
 </div>
+
+

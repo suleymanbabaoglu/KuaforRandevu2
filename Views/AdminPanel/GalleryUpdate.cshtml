@@ -2,27 +2,32 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5">
+<div class="ui container grid padded centered">
+    <div class="ui link cards centered padded">
+        <div class="card">
+            <div class="image">
+                <img src="~/img/@Model.ImgPath" alt="@Model.ImgText">
+            </div>
+            <div class="content">
+                <p>@Model.ImgText</p>
+            </div>
+        </div>
+    </div>
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("GalleryUpdate", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group", enctype = "multipart/form-data", accept = "image/jpg, image/png" }))
+        <div class="eight wide column">
+            @using (Html.BeginForm("GalleryUpdate", "AdminPanel", null, FormMethod.Post, true, new { @class = "ui form", enctype = "multipart/form-data", accept = "image/jpg, image/png" }))
             {
-                <div class="col-md-3">
-                    <img src="~/img/@Model.ImgPath" class="img-responsive" style="width:100%" alt="@Model.ImgText" />
-                </div>
                 @Html.HiddenFor(m => m.ImgUserId);
                 @Html.HiddenFor(m => m.ImgPath);
-                @Html.HiddenFor(m=>m.ImgDate);
+                @Html.HiddenFor(m => m.ImgDate);
                 @Html.HiddenFor(m => m.Id);
                 <br />
                 @Html.LabelFor(m => m.ImgText, "Image Description");
-                @Html.TextBoxFor(m => m.ImgText, new { @class = "form-control" });
+                @Html.TextBoxFor(m => m.ImgText, new { });
 
-
-
-                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="ui fluid large teal submit button" type="submit">Update</button>
             }
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+            <a class="ui button default" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>

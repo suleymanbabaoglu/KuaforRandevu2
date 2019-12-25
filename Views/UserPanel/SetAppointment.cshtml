@@ -3,20 +3,20 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<div class="container mt-5">
+<div class="ui container centered grid padded">
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("SetAppointment", "UserPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="eight wide column">
+            @using (Html.BeginForm("SetAppointment", "UserPanel", null, FormMethod.Post, true, new { @class = "ui large form"}))
             {
-                @Html.HiddenFor(m => m.UserId);
-                @Html.LabelFor(m => m.ExpertId, "Expert");
-                @Html.DropDownList("ExpertId", ViewBag.Users.Items, "Select an Expert", new { @class = "form-control" });
-                @Html.LabelFor(m => m.AppointmentDate, "Appointment Date");
-                @Html.TextBoxFor(m => m.AppointmentDate, new { @class = "form-control", type = "datetime-local" });
-                <button class="btn btn-primary" type="submit">Set Appointment</button>
+                @Html.HiddenFor(m => m.UserId);               
+                @Html.DropDownList("ExpertId", ViewBag.Users.Items, "Select an Expert", new {  });              
+                @Html.TextBoxFor(m => m.AppointmentDate, new {type = "datetime-local" });
+                <button class="ui fluid large teal submit button" type="submit">Set Appointment</button>
             }
-            <a class="btn btn-warning" href="~/UserPanel/AppointmentManagement">Appointments</a>
-            <a class="btn btn-secondary" href="~/UserPanel">User Home</a>
+        <br />
+        <br />
+            <a class="ui blue button" href="~/UserPanel/AppointmentManagement">Appointments</a>
+            <a class="ui button default" href="~/UserPanel">User Home</a>
         </div>
     </div>
 </div>

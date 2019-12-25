@@ -2,27 +2,27 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5">
+<<div class="ui container grid padded centered">
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("ContactManagement", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="eight wide column">
+            @using (Html.BeginForm("ContactManagement", "AdminPanel", null, FormMethod.Post, true, new { @class = "ui form" }))
             {
                 @Html.HiddenFor(m => m.Id);
                 @Html.LabelFor(m => m.Instagram, "Instagram");
-                @Html.TextBoxFor(m => m.Instagram, new { @class = "form-control" });
+                @Html.TextBoxFor(m => m.Instagram, new { });
                 @Html.LabelFor(m => m.Facebook, "Facebook");
-                @Html.TextBoxFor(m => m.Facebook, new { @class = "form-control" });
+                @Html.TextBoxFor(m => m.Facebook, new {});
                 @Html.LabelFor(m => m.GooglePlus, "Google+");
-                @Html.TextBoxFor(m => m.GooglePlus, new { @class = "form-control" });
+                @Html.TextBoxFor(m => m.GooglePlus, new {  });
                 @Html.LabelFor(m => m.Email, "E-Mail");
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" });
+                @Html.TextBoxFor(m => m.Email, new {  });
                 @Html.LabelFor(m => m.Phone, "Phone");
-                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" });
+                @Html.TextBoxFor(m => m.Phone, new { });
                 @Html.LabelFor(m => m.Address, "Address");
-                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" });
-                <button class="btn btn-primary" type="submit">Update</button>
+                @Html.TextBoxFor(m => m.Address, new {});
+                <button class="ui fluid large teal submit button" type="submit">Update</button>
             }
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+            <a class="ui button default" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>

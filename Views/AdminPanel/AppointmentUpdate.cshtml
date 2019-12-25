@@ -2,25 +2,25 @@
 @{
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<div class="container mt-5">
+<div class="ui container centered grid padded">
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("AppointmentUpdate", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="eight wide column">
+            @using (Html.BeginForm("AppointmentUpdate", "AdminPanel", null, FormMethod.Post, true, new { @class = "ui large form error" }))
             {
                 @Html.HiddenFor(m => m.ExpertId)
                 @Html.HiddenFor(m => m.UserId)
-                
-                @Html.LabelFor(m => m.Expert.User.FullName, "Expert");
-                @Html.TextBox("FullName", ViewBag.user.FullName, "", new { @class = "form-control", @readonly = "readonly" });
-                @Html.LabelFor(m => m.AppointmentDate, "Appointment Date");
 
-                <input class="form-control" type="datetime-local" name="AppointmentDate" value="@Model.AppointmentDate.ToString("dd.MM.yyyyTHH:mm:ss")" />
-                <button class="btn btn-primary" type="submit">Update</button>
+                @Html.LabelFor(m => m.Expert.User.FullName, "Expert");
+                @Html.TextBox("FullName", ViewBag.user.FullName, "", new { @readonly = "readonly" });
+                @Html.LabelFor(m => m.AppointmentDate, "Appointment Date");
+                @Html.TextBoxFor(m=>m.AppointmentDate, new { type="datetime-local"})                
+                <button class="ui fluid large teal submit button" type="submit">Update</button>
             }
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+
+            <a class="ui blue button" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>
+
 
 

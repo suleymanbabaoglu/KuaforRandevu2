@@ -13,10 +13,10 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" type="text/css" href="~/dist/semantic.min.css">
 </head>
-<body>
+<body style="background-color:greenyellow">
     <header>
         <div class="ui container">
-            <div class="ui secondary pointing menu">
+            <div class="ui secondary pointing menu dividing header">
                 <a class="item" href="@Url.Content("~/")">Homepage</a>
                 <a class="item" href="@Url.Content("~/FrontSide/AboutUs")">About Us</a>
                 <a class="item" href="@Url.Content("~/FrontSide/Experts")">Experts</a>
@@ -28,8 +28,8 @@
                         @if (User.IsInRole("user"))
                         {
                             <a class="ui item" href="~/UserPanel/SetAppointment">Set an Appointment</a>
-                            <a class="ui item" href="@Url.Content("~/Login")">@User.Identity.Name</a>
                         }
+                        <a class="ui item" href="@Url.Content("~/Login")">@User.Identity.Name</a>
                     }
                     else
                     {
@@ -45,11 +45,6 @@
             @RenderBody()        
     </div>
 
-    <footer class="ui footer">
-        <div class="ui container">
-            &copy; 2019  <a href="#">- KuaforRandevu -</a>
-        </div>
-    </footer>
 
 
     <script src="~/lib/jquery/dist/jquery.js"></script>

@@ -2,39 +2,39 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("UserAdd", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
-            {
-                @Html.LabelFor(m => m.UserName, "User Name");
-                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Password, "Password");
-                @Html.TextBoxFor(m => m.Password, new { @class = "form-control" });
-                @Html.LabelFor(m => m.FullName, "Full Name");
-                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Gender, "Gender");
-                <select name="selectedGender" class="form-control">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-                @Html.LabelFor(m => m.Email, "E-Mail");
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Phone, "Phone");
-                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Address, "Address");
-                @Html.TextAreaFor(m => m.Address, new { @class = "form-control" });
-                @Html.LabelFor(m => m.RoleId, "Role");
-                <select name="selectedRole" class="form-control">
-                    <option value="1">Admin</option>
-                    <option value="2">User</option>
-                </select>
+    <div class="ui container grid padded centered">
+        <div class="row">
+            <div class="eight wide column">
+                @using (Html.BeginForm("UserAdd", "AdminPanel", null, FormMethod.Post, true, new { @class = "ui form" }))
+                {
+                    @Html.LabelFor(m => m.UserName, "User Name");
+                    @Html.TextBoxFor(m => m.UserName, new {  });
+                    @Html.LabelFor(m => m.Password, "Password");
+                    @Html.TextBoxFor(m => m.Password, new { });
+                    @Html.LabelFor(m => m.FullName, "Full Name");
+                    @Html.TextBoxFor(m => m.FullName, new { });
+                    @Html.LabelFor(m => m.Gender, "Gender");
+                    <select name="selectedGender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                    @Html.LabelFor(m => m.Email, "E-Mail");
+                    @Html.TextBoxFor(m => m.Email, new {  });
+                    @Html.LabelFor(m => m.Phone, "Phone");
+                    @Html.TextBoxFor(m => m.Phone, new {});
+                    @Html.LabelFor(m => m.Address, "Address");
+                    @Html.TextAreaFor(m => m.Address, new { });
+                    @Html.LabelFor(m => m.RoleId, "Role");
+                    <select name="selectedRole">
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
+                    </select>
 
-                <button class="btn btn-primary" type="submit">Add</button>
-            }
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+                    <button class="ui fluid large teal submit button" type="submit">Add</button>
+                }
+                <a class="ui button default" href="~/AdminPanel">Admin Home</a>
+            </div>
         </div>
     </div>
-</div>
 

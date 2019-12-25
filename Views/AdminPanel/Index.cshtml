@@ -3,49 +3,46 @@
     ViewData["Title"] = "Admin Home";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-<div class="container text-center">
+    <br />
+<div class="ui container grid centered">
     <div class="row">
-        <div class="col-md-12">
-            <div class="row">
-                <div class="col-md-12">
-                    @Html.ActionLink("APPOINTMENT MANAGEMENT", "AppointmentManagement", "AdminPanel", null, new { @class = "btn btn-primary p-5", style = "width:100%" })
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-md-4">
-                    @Html.ActionLink("USER MANAGEMENT", "UserManagement", "AdminPanel", null, new { @class = "btn btn-secondary p-5", style = "width:100%" })
-                </div>
-                <div class="col-md-4">
-                    @Html.ActionLink("EXPERT MANAGEMENT", "ExpertsManagement", "AdminPanel", null, new { @class = "btn btn-secondary p-5", style = "width:100%" })
-                </div>
-                <div class="col-md-4 d-block">
-                    @Html.ActionLink("CONTACT FORM MANAGEMENT", "ContactFormManagement", "AdminPanel", null, new { @class = "btn btn-secondary p-5", style = "width:100%" })
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-md-4">
-                    @Html.ActionLink("ABOUT US MANAGEMENT", "AboutUsManagement", "AdminPanel", null, new { @class = "btn btn-warning p-5", style = "width:100%" })
-                </div>
-                <div class="col-md-4">
-                    @Html.ActionLink("GALLERY MANAGEMENT", "GalleryManagement", "AdminPanel", null, new { @class = "btn btn-warning p-5", style = "width:100%" })
-                </div>
-                <div class="col-md-4">
-                    @Html.ActionLink("CONTACT MANAGEMENT", "ContactManagement", "AdminPanel", null, new { @class = "btn btn-warning p-5", style = "width:100%" })
-                </div>
-            </div>
-            <br />
-            <div class="row">
-                <div class="col-md-6">
-                    @Html.ActionLink("Site Homepage", "Index", "FrontSide", null, new { @class = "btn btn-success", style = "width:100%" })
-                </div>
-                <div class="col-md-6">
-                    @Html.ActionLink("Sign Out", "SignOut", "Login", null, new { @class = "btn btn-danger", style = "width:100%" })
-                </div>
-            </div>
+        <div class="wide column">
+            @Html.ActionLink("APPOINTMENT MANAGEMENT", "AppointmentManagement", "AdminPanel", null, new { @class = "ui button primary padded huge", style = "width:100%" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="four wide column">
+            @Html.ActionLink("USER MANAGEMENT", "UserManagement", "AdminPanel", null, new { @class = "ui button secondary padded huge", style = "width:100%" })
+        </div>
+        <div class="four wide column">
+            @Html.ActionLink("EXPERT MANAGEMENT", "ExpertsManagement", "AdminPanel", null, new { @class = "ui button secondary padded huge", style = "width:100%" })
+        </div>
+        <div class="four wide column">
+            @Html.ActionLink("CONTACT FORM MANAGEMENT", "ContactFormManagement", "AdminPanel", null, new { @class = "ui button secondary padded huge", style = "width:100%" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="four wide column">
+            @Html.ActionLink("ABOUT US MANAGEMENT", "AboutUsManagement", "AdminPanel", null, new { @class = "ui button default padded huge", style = "width:100%" })
+        </div>
+        <div class="four wide column">
+            @Html.ActionLink("GALLERY MANAGEMENT", "GalleryManagement", "AdminPanel", null, new { @class = "ui button default padded huge", style = "width:100%" })
+        </div>
+        <div class="four wide column">
+            @Html.ActionLink("CONTACT MANAGEMENT", "ContactManagement", "AdminPanel", null, new { @class = "ui button default padded huge", style = "width:100%" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="eight wide column">
+            @Html.ActionLink("Site Homepage", "Index", "FrontSide", null, new { @class = "green ui button mini", style = "width:100%" })
+        </div>
+        <div class="eight wide column">
+            @Html.ActionLink("Sign Out", "SignOut", "Login", null, new { @class = "red ui button mini", style = "width:100%" })
         </div>
     </div>
 </div>
+
 

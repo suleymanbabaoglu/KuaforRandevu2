@@ -4,36 +4,30 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<div class="container mt-5">
+<div class="ui container grid padded">
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("PersonalSettings", "UserPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="column">
+            @using (Html.BeginForm("PersonalSettings", "UserPanel", null, FormMethod.Post, true, new { @class = "ui large form error" }))
             {
                 @Html.HiddenFor(m => m.Id);
                 @Html.HiddenFor(m => m.RoleId);
-                @Html.LabelFor(m => m.UserName, "User Name");
-                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Password, "Password");
-                @Html.TextBoxFor(m => m.Password, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Gender, "Gender");
-                <select name="Gender" class="form-control">
+                @Html.TextBoxFor(m => m.UserName, new { placeholder = "User Name" });
+                @Html.TextBoxFor(m => m.Password, new { placeholder = "Password" });
+                <select name="Gender">
                     <option selected value="@Model.Gender">@Model.Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                    <option value="Other">Other</option>                    
+                    <option value="Other">Other</option>
                 </select>
                 <br />
-                @Html.LabelFor(m => m.FullName, "Full Name");
-                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Email, "E-Mail");
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Phone, "Phone");
-                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Address, "Address");
-                @Html.TextBoxFor(m => m.Address, new { @class = "form-control" });
-                <button class="btn btn-primary" type="submit">Update</button>
+                @Html.TextBoxFor(m => m.FullName, new { placeholder = "Full Name" });
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "E-Mail" });
+                @Html.TextBoxFor(m => m.Phone, new { placeholder = "Phone" });
+                @Html.TextBoxFor(m => m.Address, new { placeholder = "Address" });
+                
+                <button class="ui fluid large teal submit button" type="submit">Update</button>
             }
-            <a class="btn btn-secondary" href="~/UserPanel">User Home</a>
+            <a class="ui button secondary" href="~/UserPanel">User Home</a>
         </div>
     </div>
 </div>

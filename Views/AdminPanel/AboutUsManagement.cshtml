@@ -2,21 +2,21 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5">
+<div class="ui container grid padded centered">
     <div class="row">
-        <div class="col-md-12">
-           @using (Html.BeginForm("AboutUsManagement", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="eight wide column">
+           @using (Html.BeginForm("AboutUsManagement", "AdminPanel", null, FormMethod.Post, true, new { @class = "ui large form" }))
            {
                @Html.HiddenFor(m => m.Id);
                @Html.LabelFor(m => m.AboutText, "About Us");
-               @Html.TextBoxFor(m => m.AboutText,new {@class="form-control"});
+               @Html.TextBoxFor(m => m.AboutText,new {});
                @Html.LabelFor(m => m.Mission, "Our Mission");
-               @Html.TextBoxFor(m => m.Mission,new {@class="form-control"});
+               @Html.TextBoxFor(m => m.Mission,new {});
                @Html.LabelFor(m => m.Vision, "Our Vision");
-               @Html.TextBoxFor(m => m.Vision,new {@class="form-control"});
-               <button class="btn btn-primary" type="submit">Update</button>
+               @Html.TextBoxFor(m => m.Vision,new {});
+               <button class="ui fluid large teal submit button" type="submit">Update</button>
            }
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+            <a class="ui button default" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>

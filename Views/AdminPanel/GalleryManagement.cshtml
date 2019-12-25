@@ -2,42 +2,42 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5 text-center">
-    <div class="row">
-        <div class="col-md-12">
-            <table class="table table-responsive table-bordered text-center">
-                <thead>
-                    <tr>
-                        <td>ID</td>
-                        <td>Image User</td>
-                        <td>Text</td>
-                        <td>Path</td>
-                        <td>Date</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var gallery in Model)
-                    {
-                        <tr class="p-1">
-                            <td>@gallery.Id</td>
-                            <td>@gallery.ImgUser.FullName</td>
-                            <td>@gallery.ImgText</td>
-                            <td>@gallery.ImgPath</td>
-                            <td>@gallery.ImgDate</td>
-                            <td>
-                                <a href="~/AdminPanel/GalleryUpdate/@gallery.Id">Edit</a>
-                            </td>
-                            <td>
-                                <a href="~/AdminPanel/GalleryDelete/@gallery.Id">Delete</a>
-                            </td>
+    <div class="ui container centered padded grid">
+        <div class="row">
+            <div class="wide column">
+                <table class="ui attached inverted table">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Image User</td>
+                            <td>Text</td>
+                            <td>Path</td>
+                            <td>Date</td>
+                            <td></td>
+                            <td></td>
                         </tr>
-                    }
-                </tbody>
-            </table>
-            <a class="btn btn-secondary" href="~/AdminPanel/GalleryAdd">Add</a>
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+                    </thead>
+                    <tbody>
+                        @foreach (var gallery in Model)
+                        {
+                            <tr>
+                                <td>@gallery.Id</td>
+                                <td>@gallery.ImgUser.FullName</td>
+                                <td>@gallery.ImgText</td>
+                                <td>@gallery.ImgPath</td>
+                                <td>@gallery.ImgDate</td>
+                                <td>
+                                    <a href="~/AdminPanel/GalleryUpdate/@gallery.Id">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="~/AdminPanel/GalleryDelete/@gallery.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a class="ui button primary" href="~/AdminPanel/GalleryAdd">Add</a>
+                <a class="ui button default" href="~/AdminPanel">Admin Home</a>
+            </div>
         </div>
     </div>
-</div>

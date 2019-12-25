@@ -2,21 +2,24 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h3>GALLERY</h3>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            @foreach (var item in Model)
-            {
-            <div class="col-md-4">
-                <img src="~/img/@item.ImgPath" class="img-responsive" alt="@item.ImgText" style="width: 100%;" />
-
-                <div class="text-center">
-                    <p>@item.ImgText</p>
+<div class="ui link cards centered padded">
+    @foreach (var item in Model)
+    {
+        <div class="card">
+            <div class="image">
+                <img src="~/img/@item.ImgPath">
+            </div>
+            <div class="content">
+                <div class="description">
+                    @item.ImgText
                 </div>
             </div>
-            }
+            <div class="extra content">
+                <span class="right floated">
+                    @item.ImgDate.ToShortDateString()
+                </span>
+            </div>
         </div>
-    </div>
+    }
 </div>

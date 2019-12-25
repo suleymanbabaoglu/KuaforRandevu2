@@ -2,10 +2,10 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5 text-center">
+<div class="ui container centered padded grid">
     <div class="row">
-        <div class="col-md-12">
-            <table class="table table-responsive table-bordered text-center">
+        <div class="wide column">
+            <table class="ui attached inverted table">
                 <thead>
                     <tr>
                         <td>ID</td>
@@ -24,7 +24,7 @@
                 <tbody>
                     @foreach (var user in Model)
                     {
-                        <tr class="p-1">
+                        <tr>
                             <td>@user.Id</td>
                             <td>@user.Role.RoleName</td>
                             <td>@user.FullName</td>
@@ -44,8 +44,8 @@
                     }
                 </tbody>
             </table>
-            <a class="btn btn-success" href="~/AdminPanel/UserAdd">Add User</a>
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+            <a class="ui button primary" href="~/AdminPanel/UserAdd">Add User</a>
+            <a class="ui button default" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>

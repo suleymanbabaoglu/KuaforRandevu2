@@ -3,25 +3,21 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-    <h5>@ViewBag.Message</h5>
-
-<div class="container mt-5">
+    
+<div class="ui container centered grid padded">
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("UpdateAppointment", "UserPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="eight wide column">
+            @using (Html.BeginForm("UpdateAppointment", "UserPanel", null, FormMethod.Post, true, new { @class = "ui large form error"}))
             {
                 @Html.HiddenFor(m => m.ExpertId);
                 @Html.HiddenFor(m => m.UserId);
-                @Html.Hidden("existDate", Model.AppointmentDate);
-                @Html.LabelFor(m => m.Expert.User.FullName, "Expert");
-                @Html.TextBox("FullName", ViewBag.user.FullName, "", new { @class = "form-control", @readonly = "readonly" });
-                @Html.LabelFor(m => m.AppointmentDate, "Appointment Date");
-
-                <input class="form-control" type="datetime-local" name="AppointmentDate" />
-                <button class="btn btn-primary" type="submit">Update</button>
+                @Html.Hidden("existDate", Model.AppointmentDate);             
+                @Html.TextBox("FullName", ViewBag.user.FullName, "", new {  @readonly = "readonly" });         
+                @Html.TextBoxFor(m => m.AppointmentDate, new { type = "datetime-local" });
+                <button class="ui fluid large teal submit button" type="submit">Update</button>
             }
-            <a class="btn btn-warning" href="~/UserPanel/AppointmentManagement">Appointments</a> 
-            <a class="btn btn-secondary" href="~/UserPanel">User Home</a>
+            <a class="ui blue button" href="~/UserPanel/AppointmentManagement">Appointments</a>
+            <a class="ui button default" href="~/UserPanel">User Home</a>
         </div>
     </div>
 </div>

@@ -2,39 +2,39 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5 text-center">
+<div class="ui container centered padded grid">
     <div class="row">
-        <div class="col-md-12">
-            <table class="table table-responsive table-bordered text-center">
+        <div class="wide column">
+            <table class="ui attached inverted table">
                 <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Full Name</td>
-                    <td>Title</td>
-                    <td>Message</td>
-                    <td>Email</td>
-                    <td>Phone</td>
-                    <td></td>                 
-                </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td>Full Name</td>
+                        <td>Title</td>
+                        <td>Message</td>
+                        <td>Email</td>
+                        <td>Phone</td>
+                        <td></td>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach (var contactForm in Model)
-                {
-                    <tr class="p-1">
-                        <td>@contactForm.Id</td>
-                        <td>@contactForm.FullName</td>
-                        <td>@contactForm.Title</td>
-                        <td>@contactForm.Message</td>
-                        <td>@contactForm.Email</td>
-                        <td>@contactForm.Phone</td>                        
-                        <td>
-                            <a href="~/AdminPanel/ContactFormDelete/@contactForm.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
+                    @foreach (var contactForm in Model)
+                    {
+                        <tr class="padded">
+                            <td>@contactForm.Id</td>
+                            <td>@contactForm.FullName</td>
+                            <td>@contactForm.Title</td>
+                            <td>@contactForm.Message</td>
+                            <td>@contactForm.Email</td>
+                            <td>@contactForm.Phone</td>
+                            <td>
+                                <a href="~/AdminPanel/ContactFormDelete/@contactForm.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+            <a class="ui button default" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>

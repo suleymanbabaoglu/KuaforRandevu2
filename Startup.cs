@@ -47,7 +47,7 @@ namespace KuaforRandevu2
 
             services.AddAuthorization();
 
-            services.AddMvc(m=>m.EnableEndpointRouting=false).SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
+            services.AddMvc(m => m.EnableEndpointRouting = false).SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Latest);
 
             services.AddDbContext<KuaforWebContext>(options =>
             {
@@ -63,7 +63,7 @@ namespace KuaforRandevu2
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();               
             }
             else
             {

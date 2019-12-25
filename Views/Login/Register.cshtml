@@ -2,33 +2,27 @@
 @{
     Layout = "_Layout";
 }
-<div class="container mt-5">
+<div class="ui container grid padded">
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("Register", "Login", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="wide column">
+            @using (Html.BeginForm("Register", "Login", null, FormMethod.Post, true, new { @class = "ui large form error" }))
             {
-                @Html.LabelFor(m => m.UserName, "User Name");
-                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Password, "Password");
-                @Html.TextBoxFor(m => m.Password, new { @class = "form-control" });
-                @Html.LabelFor(m => m.FullName, "Full Name");
-                @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Gender, "Gender");
-                <select name="selectedGender" class="form-control">
+                @Html.TextBoxFor(m => m.UserName, new { placeholder = "User Name" });
+                @Html.TextBoxFor(m => m.Password, new { placeholder = "Password" });
+                @Html.TextBoxFor(m => m.FullName, new { placeholder = "Full Name" });
+                <select name="selectedGender">
+                    <option selected>Select an Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                 </select>
-                @Html.LabelFor(m => m.Email, "E-Mail");
-                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Phone, "Phone");
-                @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" });
-                @Html.LabelFor(m => m.Address, "Address");
-                @Html.TextAreaFor(m => m.Address, new { @class = "form-control" });                
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "E-Mail" });
+                @Html.TextBoxFor(m => m.Phone, new { placeholder = "Phone" });
+                @Html.TextAreaFor(m => m.Address, new { placeholder = "Address" });
 
-                <button class="btn btn-primary" type="submit">Register</button>
+                <button class="ui fluid large teal submit button" type="submit">Register</button>
             }
-            <a class="btn btn-secondary" href="~/">Home</a>
+            <a class="ui default button" href="~/">Home</a>
         </div>
     </div>
 </div>

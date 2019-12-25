@@ -2,39 +2,40 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5 text-center">
+<div class="ui container centered padded grid">
     <div class="row">
-        <div class="col-md-12">
-            <table class="table table-responsive table-bordered text-center">
+        <div class="wide column">
+            <table class="ui attached inverted table">
                 <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>User</td>
-                    <td>Expert</td>
-                    <td>Appointment Date</td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Expert</th>
+                        <th>Appointment Date</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach (var appointment in Model)
-                {
-                    <tr class="p-1">
-                        <td>@appointment.Id</td>
-                        <td>@appointment.User.FullName</td>
-                        <td>@appointment.Expert.User.FullName</td>
-                        <td>@appointment.AppointmentDate</td>
-                        <td>
-                            <a href="~/AdminPanel/AppointmentUpdate/@appointment.Id">Edit</a>
-                        </td>
-                        <td>
-                            <a href="~/AdminPanel/AppointmentDelete/@appointment.Id">Delete</a>
-                        </td>
-                    </tr>
-                }
+                    @foreach (var appointment in Model)
+                    {
+                        <tr>
+                            <td>@appointment.Id</td>
+                            <td>@appointment.User.FullName</td>
+                            <td>@appointment.Expert.User.FullName</td>
+                            <td>@appointment.AppointmentDate</td>
+                            <td>
+                                <a href="~/AdminPanel/AppointmentUpdate/@appointment.Id">Edit</a>
+                            </td>
+                            <td>
+                                <a href="~/AdminPanel/AppointmentDelete/@appointment.Id">Delete</a>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+            <br />
+            <br />           
+            <a class="ui button default" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>

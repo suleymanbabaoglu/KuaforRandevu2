@@ -2,24 +2,24 @@
 @{
     Layout = "_UserLayout";
 }
-<div class="container mt-5 text-center">
+<div class="ui container centered padded grid">
     <div class="row">
-        <div class="col-md-12">
-            <table class="table table-responsive table-bordered text-center">
+        <div class="wide column">
+            <table class="ui attached inverted table">
                 <thead>
                     <tr>
-                        <td>ID</td>                        
-                        <td>Expert</td>                       
-                        <td>Appointment Date</td>
-                        <td></td>
-                        <td></td>
+                        <th>ID</th>
+                        <th>Expert</th>
+                        <th>Appointment Date</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var appointment in Model)
                     {
-                        <tr class="p-1">
-                            <td>@appointment.Id</td>                            
+                        <tr>
+                            <td>@appointment.Id</td>
                             <td>@appointment.Expert.User.FullName</td>
                             <td>@appointment.AppointmentDate</td>
                             <td>
@@ -32,8 +32,10 @@
                     }
                 </tbody>
             </table>
-            <a class="btn btn-primary" href="~/UserPanel/SetAppointment">Set Appointment</a>
-            <a class="btn btn-secondary" href="~/UserPanel">Admin Home</a>
+            <br />
+            <br />
+            <a class="ui button primary" href="~/UserPanel/SetAppointment">Set Appointment</a>
+            <a class="ui button default" href="~/UserPanel">User Home</a>
         </div>
     </div>
 </div>

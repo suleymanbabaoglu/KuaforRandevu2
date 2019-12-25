@@ -2,18 +2,18 @@
 @{
     Layout = "_AdminLayout";
 }
-<div class="container mt-5">
+<<div class="ui container grid padded centered">
     <div class="row">
-        <div class="col-md-12">
-            @using (Html.BeginForm("ExpertUpdate", "AdminPanel", null, FormMethod.Post, true, new { @class = "form-group" }))
+        <div class="eight wide column">
+            @using (Html.BeginForm("ExpertUpdate", "AdminPanel", null, FormMethod.Post, true, new { @class = "ui form" }))
             {
                 <h3>@ViewBag.userFullName</h3>
                 <br />
-                @Html.TextBoxFor(m => m.ExpertJob, new { @class = "form-control" });
-                @Html.HiddenFor(m=>m.UserId)
-                <button class="btn btn-primary" type="submit">Update</button>
+                @Html.TextBoxFor(m => m.ExpertJob, new {  });
+                @Html.HiddenFor(m => m.UserId)
+                <button class="ui fluid large teal submit button" type="submit">Update</button>
             }
-            <a class="btn btn-secondary" href="~/AdminPanel">Admin Home</a>
+            <a class="ui button default" href="~/AdminPanel">Admin Home</a>
         </div>
     </div>
 </div>
