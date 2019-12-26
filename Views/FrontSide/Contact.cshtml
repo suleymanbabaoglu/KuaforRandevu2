@@ -8,29 +8,30 @@
     <div class="row">
         <div class="four wide column">
             <h3>Instagram</h3>
-            <p><a href="https://instagram.com/@ViewBag.Contact.Instagram">@ViewBag.Contact.Instagram</a></p>
+           
+            <p><a class="ui instagram button" href="https://instagram.com/@ViewBag.Contact.Instagram"> <i class="instagram icon"></i>@ViewBag.Contact.Instagram</a></p>
         </div>
         <div class="four wide column">
             <h3>Facebook</h3>
-            <p><a href="https://fb.com/@ViewBag.Contact.Facebook">@ViewBag.Contact.Facebook</a></p>
+            <p><a class="ui facebook button" href="https://fb.com/@ViewBag.Contact.Facebook"><i class="facebook icon"></i>@ViewBag.Contact.Facebook</a></p>
         </div>
         <div class="four wide column">
             <h3>Google+</h3>
-            <p><a href="https://plus.google.com/@ViewBag.Contact.GooglePlus">@ViewBag.Contact.GooglePlus</a></p>
+            <p><a class="ui google button" https://plus.google.com/@ViewBag.Contact.GooglePlus"><i class="google icon"></i>@ViewBag.Contact.GooglePlus</a></p>
         </div>
     </div>
     <div class="row">
         <div class="four wide column">
             <h3>Email</h3>
-            <p>@ViewBag.Contact.Email</p>
+            <p><i class="mail icon"></i>@ViewBag.Contact.Email</p>
         </div>
         <div class="four wide column">
             <h3>Phone</h3>
-            <p>@ViewBag.Contact.Phone</p>
+            <p><i class="phone icon"></i>@ViewBag.Contact.Phone</p>
         </div>
         <div class="four wide column">
             <h3>Address</h3>
-            <p>@ViewBag.Contact.Address</p>
+            <p><i class="point icon"></i>@ViewBag.Contact.Address</p>
         </div>
     </div>
 
@@ -71,7 +72,7 @@
                 Send Your Message
             </div>
         </h2>
-        @using (Html.BeginForm("ContactFormAdd", "AdminPanel", FormMethod.Post, new { @class = "ui large form error" }))
+        @using (Html.BeginForm("ContactFormAdd", "AdminPanel", FormMethod.Post, new { @class = "ui form" }))
         {
             <div class="ui stacked segment">
                 <div class="field error">

@@ -89,7 +89,7 @@ namespace KuaforRandevu2.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult Register(User regUser, string selectedGender)
+        public async Task<IActionResult> RegisterAsync(User regUser, string selectedGender)
         {
             regUser.RoleId = 2;
             regUser.Gender = selectedGender;
@@ -98,7 +98,7 @@ namespace KuaforRandevu2.Controllers
             {
                 userRepo.Add(regUser);
                 userRepo.Save();
-                SignInAsync(regUser);
+                await SignInAsync(regUser);
                 Index(regUser);
                 return RedirectToAction("Index","FrontSide");
             }
