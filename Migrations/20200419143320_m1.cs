@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace KuaforRandevu2.Migrations
@@ -12,7 +13,7 @@ namespace KuaforRandevu2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Mission = table.Column<string>(nullable: true),
                     Vision = table.Column<string>(nullable: true),
                     AboutText = table.Column<string>(nullable: true)
@@ -27,7 +28,7 @@ namespace KuaforRandevu2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Email = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
@@ -45,7 +46,7 @@ namespace KuaforRandevu2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Email = table.Column<string>(nullable: true),
                     Phone = table.Column<string>(nullable: true),
                     FullName = table.Column<string>(nullable: true),
@@ -62,7 +63,7 @@ namespace KuaforRandevu2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     RoleName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -75,7 +76,7 @@ namespace KuaforRandevu2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserName = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: false),
                     FullName = table.Column<string>(nullable: false),
@@ -93,7 +94,7 @@ namespace KuaforRandevu2.Migrations
                         column: x => x.RoleId,
                         principalTable: "Role",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -101,7 +102,7 @@ namespace KuaforRandevu2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<int>(nullable: false),
                     ExpertJob = table.Column<string>(nullable: true)
                 },
@@ -121,7 +122,7 @@ namespace KuaforRandevu2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     ImgText = table.Column<string>(nullable: true),
                     ImgPath = table.Column<string>(nullable: false),
                     ImgDate = table.Column<DateTime>(nullable: false),
@@ -143,7 +144,7 @@ namespace KuaforRandevu2.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     UserId = table.Column<int>(nullable: false),
                     ExpertId = table.Column<int>(nullable: false),
                     AppointmentDate = table.Column<DateTime>(nullable: false)
@@ -162,7 +163,7 @@ namespace KuaforRandevu2.Migrations
                         column: x => x.UserId,
                         principalTable: "User",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
@@ -198,8 +199,7 @@ namespace KuaforRandevu2.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Expert_UserId",
                 table: "Expert",
-                column: "UserId",
-                unique: true);
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Gallery_ImgUserId",
